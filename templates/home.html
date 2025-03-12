@@ -1,0 +1,13 @@
+<h3> Homepage <h3>
+{% if user.is_authenticated %}
+    <p> welcome <b> {{ user.username }} </b> </p>
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+    <a href="{% url 'password_change'%}"> Password Change </a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+    <br>
+    <a href="{% url 'signup' %}">Signup</a>
+{% endif %}

@@ -3,5 +3,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    pass
+    usable_password = models.BooleanField(default = True)
+
 
